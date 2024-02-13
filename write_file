@@ -1,0 +1,10 @@
+import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
+
+data = {'col1':[1,2,3], 'col2':[A,B,C]}
+df = pd.DataFrame(data)
+
+table = pas.Table.from_pandas(df)
+
+pq.write_table(table, 'out.parquet')
