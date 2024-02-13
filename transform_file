@@ -1,0 +1,10 @@
+import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
+
+json_data = {['name':'Alice','age':30]['name':'Bob','age':50]}
+df = pd.DataFrame(json_data)
+
+table = pa.Table.from_pandas(df)
+
+pq.write_table(table, 'out.parquet')
